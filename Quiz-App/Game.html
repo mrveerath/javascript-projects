@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="Game.css">
+<script src="./Game.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="gameAnimation" id="gameAnimation">
+        <div class="animationContainer">
+            <h1>🫸🏿🫷🏿 </h1>
+            <h1>Welcome To The Quiz World</h1>
+            <div class="loader">
+                <div class="middle"></div>
+                <div class="subMainBox"></div>
+                <div class="subMainBox"></div>
+                <div class="subMainBox"></div>
+                <div class="subMainBox"></div>
+            </div>
+        </div>
+    </div>
+    <div class="gamePlayerForm" id="gamePlayerForm">
+        <div class="gameFormContainer">
+            <div class="formContainer">
+                <div class="innerFormContainer">
+                    <input type="text" id="PlayerNameInput" placeholder="Please Enter Your Name">
+                    <button type="button" id="startGameBtn">Play</button>
+                </div>
+            </div>
+            <div class="rulesContainer">
+                <ul class="rules">
+                    <li class="rule">
+                        <p>You Are Allowed To Select Only One Answer</p>
+                    </li>
+                    <li class="rule">
+                        <p>You Can Get Only 30 Second To Answer</p>
+                    </li>
+                    <li class="rule">
+                        <p>You Will Get One Point For The One Answer</p>
+                    </li>
+                    <li class="rule">
+                        <p>You Will Get Five Chance</p>
+                    </li>
+                    <li class="rule">
+                        <p>If You Answer Wrong The Time Will Decrease 3 Second</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="playerNotFound" id="playerNotFound">
+        <div class="modaleBox">
+            <h1>❌</h1>
+            <h1>Please Enter A Player Name</h1>
+            <button type="button" id="closeModale">Ok</button>
+        </div>
+    </div>
+    <div class="mainGameContainer" id="mainGameContainer">
+        <div class="innerGameContainer">
+            <div class="playerDetailContainer">
+                <h1 class="playerName">🙂 : Pawan Kumar</h1>
+                <h1 class="timer">⌚ : 20</h1>
+                <h1 class="score">💯 : 00</h1>
+            </div>
+            <div class="quizContainer">
+                <h1 class="question">What Is Your Name ?</h1>
+                <span class="answers">
+                    <button type="button">Pawan</button>
+                    <button type="button">Rajesh</button>
+                    <button type="button">Brijesh</button>
+                    <button type="button">Bikrtam</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="playNextOrExit" id="playNextOrExit">
+        <div class="nextOrExitContainer">
+                <h1 id="Clickmessage"></h1>
+                <h1>Do You Want To :</h1>
+            <div class="exitOrNextButtons">
+                <button type="button" id="exitGame">Exit Game</button>
+                <button type="button" id="playNext">Play Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="gameOver" id="gameOver">
+        <div class="gameOverContainer">
+            <div class="lastMessages">
+                <h1 class="playerName">Pawan Kumar</h1>
+                <h1>You Have Played Total : <span class="totalGames">15</span> Times</h1>
+                <h1>Your Correct Answer Is <span class="rightAnswer">10</span></h1>
+                <h1>Your Incorrect Answer is <span class="wrongAnswer">5</span></h1>
+            </div>
+            <div class="gameOverButtons">
+                <button type="button">Quit Game</button>
+                <button type="button">Play Again</button>
+            </div>
+        </div>
+    </div>
+    <div class="gameError" id="gameError">
+        <div class="gameErrorModale">
+            <h1>Something Went Wrong Please Try Again</h1>
+            <button type="button">Try Again</button>
+        </div>
+    </div>
+</body>
+</html>

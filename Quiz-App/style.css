@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    ---primary-color: #ff0000;
+    ---dark-color: #191919;
+    ---light-color: #f1f1f1;
+
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: var(---light-color);
+}
+/* gameStartingContainer */
+.gameStart {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    gap: 1.2rem;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.gameStart .rulesBook ul{
+    list-style-type: square;
+    color: var(---primary-color);
+}
+
+.gameStart h1 {
+    color: var(---primary-color);
+    font-size: 2.5rem;
+}
+
+.gameStart .user {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.gameStart .user input {
+    padding: 4px;
+    height: 40px;
+    font-size: 1rem;
+    outline: none;
+    width: 300px;
+    border: 2px solid var(---dark-color);
+    border-radius: 2px;
+}
+
+.gameLoading {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+.gameLoading .animation {
+    color: var(---primary-color);
+    font-size: 2rem;
+    animation: bounce infinite 3s ease-in-out;
+}
+
+.mainBox{
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 70px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    background: #e1e1e1;
+    animation:rotate infinite 3s ease-in-out;
+}
+
+.mainBox .middle{
+    position: absolute;
+    top: 10px;
+    background: #fff;
+    z-index: 5000;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    left: 10px;
+}
+
+.gameLoading .mainBox .subMainBox{
+    height: 35px;
+    width: 35px;
+    background: #b8b8b8;
+}
+.mainBox .subMainBox:nth-child(2){
+    background: red;
+}
+
+
+@keyframes rotate{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        scale: 1;
+    }
+
+    33% {
+        scale: 1.2;
+    }
+
+    66% {
+        scale: 0.8;
+    }
+
+}
+
+.game {
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+}
+.game .scoreAndName{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+    background: var(---dark-color);
+    color: var(---light-color);
+    position: relative;
+    padding: 2rem;
+}
+.game .scoreAndName #name,.game .scoreAndName #score{
+    font-size: 1.5rem;
+}
+.game .gameContainer{
+    background: var(---dark-color);
+    width: 900px;
+}
+.game .gameContainer .gameWrapper{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.gameWrapper .question{
+    color: var(---light-color);
+}
+
+.gameWrapper .answers{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: auto auto;
+}
+
+.gameWrapper .answers button{
+    background: var(---light-color);
+    color: var(---dark-color);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    /* border-radius: 4px; */
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+}
+#timerSection{
+    font-size: 1.5rem;
+}
+
+.gameWrapper .answers span:hover{
+    background: var(---primary-color);
+    color: var(---light-color);
+}
+
+.game .gameAndScore .scoreAndName {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(---primary-color);
+}
+
+.gameError {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    width: 100vw;
+    gap: 1.2rem;
+    color: var(---primary-color);
+}
+
+.gameError h1 {
+    font-size: 2rem;
+}
+
+button {
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid var(---primary-color);
+    background: var(---primary-color);
+    color: var(---dark-color);
+    height: 40px;
+    cursor: pointer;
+    border-radius: 2px;
+    position: relative;
+    padding-inline: 40px;
+}
+
+ button::after {
+    content: "";
+    position: absolute;
+    border: 2px solid var(---dark-color);
+    height: 100%;
+    width: 100%;
+    border-radius: 2px;
+    left: 2px;
+    top: 2px;
+    transition: all 0.2s ease-in-out;
+}
+
+ button:hover::after {
+    left: -2px;
+    top: -2px;
+}
+.gameOver{
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(---primary-color);
+    flex-direction: column;
+}
+.gameOver .controllers{
+    display: flex;
+    gap: 1rem;
+}
+.notUserName{
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.267);
+    display: none;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    justify-content: center;
+}
+.notUserName .messageContainer{
+    background: var(---light-color);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    border-radius: 4px;
+}
+.playNext{
+    height: 100vh;
+    width: 100vw;
+    background: #4b4b4b46;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(4px);
+    display: none;
+    place-items: center;
+}
+.playNext .playNextModale{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+.playNext .playNextModale p{
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(---primary-color);
+}
+.playNext .playNextModale .playNextButtons{
+    display: flex;
+    gap: 1.5rem;
+}

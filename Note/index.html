@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <script src="./script.js" defer></script> -->
+    <script src="./Note.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="noteForm">
+        <button class="close" id="close">X</button>
+        <div class="formContainer">
+            <textarea name="notes" id="notes" placeholder="Enter Your Note"></textarea>
+            <button id="addNote">Add Notes</button>
+        </div>
+    </div>
+    <div class="logo">Pin Your Notes...</div>
+    <div class="notes" id="notesContainer">
+    </div>
+    <button class="addButton" id="open">+</button>
+    <div class="emptyNoteModaleBox" id="emptyNoteModaleBox">
+        <div class="modalebox">
+            <p>Please Enter Some Notes</p>
+            <button type="button" id="closeEmptyModale">Ok</button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: #181818;
+    padding: 40px;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #fff;
+    flex-direction: column;
+    width: 600px;
+}
+.input{
+    padding: 40px;
+    border-bottom: 2px solid #a3a3a3;
+    width: 100%;
+}
+.inner-inputs-container{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+button{
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: red;
+    outline: none;
+    border: 2px solid red;
+    color: #fff;
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+button:hover{
+    background: #fff;
+    color: red;
+}
+input{
+    outline: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #444444;
+}
+input:focus{
+    border: 2px solid red;
+}
+.output{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 40px;
+    align-items: center;
+    justify-content: center;
+}
+.output .name{
+    font-size: 2rem;
+    color: red;
+    font-weight: 400;
+    text-align: center;
+}
+.output img{
+    height: 150px;
+    box-shadow: 2px 2px 25px red;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid red;
+}
+.followersAndFollowing{
+    width: 100%;
+    /* border: 2px solid red; */
+    display: flex;
+    padding: 20px 0px;
+    align-items: center;
+    justify-content: space-between;
+}
+.followersAndFollowing .followers{
+    border: 2px solid red;
+}
