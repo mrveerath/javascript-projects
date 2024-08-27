@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", system-ui;
+    transition: all 0.4s ease-in;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background: rgb(17, 188, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.palindrome-container{
+    display: flex;
+    padding: 2rem;
+    background: #fff;
+    gap: 2rem;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    justify-content: center;
+}
+.palindrome-container h1{
+    color: rgb(17, 188, 255);
+    font-weight: 600;
+    font-size: 3rem;
+}
+.palindrome-input-form{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+.palindrome-input-form input{
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgb(17, 188, 255);
+    color: rgb(17, 188, 255);
+    font-size: 1.1rem;
+    padding: 1rem;
+    outline: none;
+    height: 45px;
+    width: 100%;
+}
+.palindrome-input-form input::placeholder{
+    color: rgb(17, 188, 255);
+    font-size: 1rem;
+}
+.palindrome-input-form button{
+    height: 45px;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    outline: none;
+    background: rgb(17, 188, 255);
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100px;
+}
+.palindrome-input-form button:hover{
+    background: rgb(1, 110, 153);
+}
+.palindrome-message{
+    margin-top: 1rem;
+}
+.palindrome-message p{
+    font-size: 1.2rem;
+    color: rgb(17, 188, 255);
+    font-weight: 800;
+}
