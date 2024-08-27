@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./script.js" defer></script>
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="error-modale">
+      <div class="modale">
+        <p>something went Wrong Search Another Place</p>
+        <button type="button" class="close-error-modale">OK</button>
+      </div>
+    </div>
+    <div class="empty-place-modale">
+      <div class="modale">
+        <p>Please Enter A Place Name</p>
+        <button class="button" class="close-modale">Ok</button>
+      </div>
+    </div>
+    <main class="main-weather-container">
+      <nav class="nav-container">
+        <h1>Weather...</h1>
+        <div class="input-box">
+          <input
+            type="text"
+            name="place"
+            id="weather-place"
+            placeholder="Enter Placename..."
+          />
+          <button type="button" id="search-weather">🔍</button>
+        </div>
+      </nav>
+      <div class="weather-container">
+        <div class="upper-container">
+          <div class="weather-place">
+            <div class="place-name weather-place-detail">
+              <span class="icon">
+                <i class="fa-solid fa-city"></i>
+              </span>
+              <span class="city">
+                Unavailable
+              </span>
+            </div>
+            <div class="place-name weather-place-detail">
+              <span class="icon">
+                <i class="fa-solid fa-globe"></i>
+              </span>
+              <span class="country">
+                Unavailable
+              </span>
+            </div>
+            <div class="place-name weather-place-detail">
+              <span class="icon">
+                TZ
+              </span>
+              <span class="time-zone">
+                Unavailable
+              </span>
+            </div>
+          </div>
+          <div class="weather-condition">
+              <img src="//cdn.weatherapi.com/weather/64x64/day/122.png" class="weather-icon" alt="Weather-Condition-Image">
+          </div>
+          <div class="temperature-detail">
+            <div class="temperature-detail-container">
+              <span class="condition">Unavailable</span>
+              <span class="icon">
+                <i class="fa-solid fa-question"></i>
+              </span>
+            </div>
+            <div class="temperature-detail-container">
+              <span class="temperature">Unavailable</span>
+              <span class="icon">
+                <i class="fa-solid fa-temperature-three-quarters"></i>
+              </span>
+            </div>
+            <div class="temperature-detail-container">
+              <span class="time"></span>
+              <span class="icon">
+                <i class="fa-solid fa-clock"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="lower-container">
+          <h1>More Weather Details</h1>
+          <div class="more-weather-detail">
+            <div class="more-detail">
+              <span>Dew</span>
+              <span class="icon">
+                <i class="fa-solid fa-droplet"></i>
+              </span>
+              <span class="dew">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>FeelsLike</span>
+              <span class="icon">
+                <i class="fa-solid fa-fire"></i>
+              </span>
+              <span class="feels-like">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>Wind Speed</span>
+              <span class="icon">
+                <i class="fa-solid fa-wind"></i>
+              </span>
+              <span class="wind-speed">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>Heat Index</span>
+              <span class="icon">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+              </span>
+              <span class="heat-index">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>Humidity</span>
+              <span class="icon">
+                <i class="fa-solid fa-snowflake"></i>
+              </span>
+              <span class="humidity">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>UV Index</span>
+              <span class="icon">
+                <i class="fa-solid fa-sun"></i>
+              </span>
+              <span class="uv-index">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>Pressure</span>
+              <span class="icon">
+                <i class="fa-solid fa-arrow-down"></i>
+              </span>
+              <span class="pressure">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>Visibility</span>
+              <span class="icon">
+                <i class="fa-solid fa-eye"></i>
+              </span>
+              <span class="visibility">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>Wind Dir</span>
+              <span class="icon">
+                <i class="fa-regular fa-compass"></i>
+              </span>
+              <span class="wind-dir">UnAvailable</span>
+            </div>
+            <div class="more-detail">
+              <span>Cloud</span>
+              <span class="icon">
+                <i class="fa-solid fa-cloud"></i>
+              </span>
+              <span class="cloud">UnAvailable</span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
