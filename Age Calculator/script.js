@@ -1,59 +1,91 @@
-const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const dateOfBirth = document.getElementById('dateOfBirth')
-const calculate = document.getElementById('btn')
-calculate.addEventListener("click",calculateAge)
-function calculateAge() {
-    let today = new Date();
-    let currentDate = {
-        date: today.getDate(),
-        month: today.getMonth() + 1,
-        year: today.getFullYear()
-    };
-    let inputDate = new Date(dateOfBirth.value); 
-    let birthDate = {
-        date: inputDate.getDate(),
-        month: inputDate.getMonth() + 1,
-        year: inputDate.getFullYear()
-    };
-    leapChecker(currentDate.year)
-    if (currentDate.year < birthDate.year ||
-        (currentDate.month < birthDate.month && currentDate.year === birthDate.year) ||
-        (currentDate.date < birthDate.date && currentDate.month === birthDate.month && currentDate.year === birthDate.year)) {
-            alert("Please Select a Valid Date");
-    }
-    let year = currentDate.year - birthDate.year
-    let month;
-    if(currentDate.month >= birthDate.month) {
-        month = currentDate.month - birthDate.month
-    }
-    else{
-        year = year -1;
-        month = 12 + currentDate.month - birthDate.month
-    }
-    if(currentDate.date >= birthDate.date) {
-        birthDate = currentDate.date -birthDate.date
-    }
-    else{
-        month = month - 1;
-        let days = months[currentDate.month - 2]
-        day = days + currentDate.date - birthDate.date
-        if(birthDate.month < 0) {
-            birthDate.month = 11
-            birthDate.year --;
-        }
+const dateOfBirth = document.getElementById('dateOfBirth');
+const calculate = document.getElementById('btn');
+calculate.addEventListener('click', start);
 
+function start() {
+    if (!dateOfBirth.value) {
+        alert('Please Enter A Date');
+        return;
     }
-    displayDate(day , month , year)
+    
+    let birthDate = new Date(dateOfBirth.value);
+    let today = new Date();
+    
+    // Check if the birth date is in the future
+    if (birthDate > today) {
+        alert('The date of birth cannot be in the future.');
+        return;
+    }
+
+    const birthDetail = {
+        birthYear: birthDate.getFullYear(),
+        birthMonth: birthDate.getMonth() + 1,
+        birthDate: birthDate.getDate()
+    };
+    
+    // Check if the birth year or the current year is a leap year
+    leapChecker(birthDetail.birthYear);
+    leapChecker(today.getFullYear());
+    
+    const age = calculateBirthDay(birthDetail);
+    displayDate(age.year, age.month, age.day);
 }
-function displayDate(date , month , year) {
-    document.getElementById('year').textContent = year;
-    document.getElementById('month').textContent =month;
-    document.getElementById('days').textContent =day;
+
+function calculateBirthDay(birthDetail) {
+    let today = new Date();
+    let currentYear = today.getFullYear();
+    let currentMonth = today.getMonth() + 1;
+    let currentDate = today.getDate();
+
+    let year = currentYear - birthDetail.birthYear;
+    let month = 0;
+    let day = 0;
+
+    if (birthDetail.birthMonth > currentMonth) {
+        year--;
+        month = 12 - (birthDetail.birthMonth - currentMonth);
+    } else if (birthDetail.birthMonth === currentMonth) {
+        if (birthDetail.birthDate > currentDate) {
+            year--;
+            month = 11;
+            day = months[currentMonth - 2] - (birthDetail.birthDate - currentDate);
+        } else {
+            month = 0;
+            day = currentDate - birthDetail.birthDate;
+        }
+    } else {
+        month = currentMonth - birthDetail.birthMonth;
+        if (birthDetail.birthDate > currentDate) {
+            month--;
+            day = months[currentMonth - 2] - (birthDetail.birthDate - currentDate);
+        } else {
+            day = currentDate - birthDetail.birthDate;
+        }
+    }
+
+    return {
+        year: year,
+        month: month,
+        day: day
+    };
 }
+
+function displayDate(year, month, day) {
+    document.getElementById('year').textContent = `Years: ${year}`;
+    document.getElementById('month').textContent = `Months: ${month}`;
+    document.getElementById('days').textContent = `Days: ${day}`;
+}
+
+const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
 function leapChecker(year) {
-	if (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0)) {
-		months[1] = 29;
-	} else {
-		months[1] = 28;
-	}
+    if (isLeapYear(year)) {
+        months[1] = 29; 
+    } else {
+        months[1] = 28;
+    }
+}
+
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
 }
