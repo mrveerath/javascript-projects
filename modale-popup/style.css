@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: azure;
+    position: relative;
+}
+
+.modale-popup-container {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    backdrop-filter: blur(8px);
+    left: 0;
+    z-index: 1000;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: #00000057;
+}
+
+.modale {
+    width: 530px;
+    padding: 1rem;
+    background: #00000057;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(6px);
+    gap: 5px;
+    border-radius: 8px;
+    color: azure;
+}
+
+.modale button {
+    background: crimson;
+    margin-top: 1rem;
+    cursor: pointer;
+    border: 2px solid azure;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: azure;
+    height: 40px;
+    width: 120px;
+}
+
+.modale button:hover {
+    border: 2px solid crimson;
+    background: transparent;
+    color: crimson;
+}
+
+.non-modale-popup {
+    position: absolute;
+    width: 400px;
+    top: 50%;
+    display: none;
+    align-items: center;
+    z-index: 999;
+    justify-content: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #3535359a;
+    backdrop-filter: blur(6px);
+    border-radius: 8px;
+    border: 2px solid crimson;
+}
+
+.non-modale-box {
+    color: azure;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.non-modale-popup p {
+    text-align: justify;
+}
+.controls{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modale-control-buttons{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    gap: 1rem;
+    /* overflow: hidden; */
+    height: 50px;
+}
+.modale-control-buttons button{
+    height: 40px;
+    color: azure;
+    border-radius: 8px;
+    border: 2px solid crimson;
+    padding: 10px;
+    cursor: pointer;
+    background: crimson;
+}
+.tool-tip-container{
+    position: relative;
+    cursor: pointer;
+}
+.tooltip{
+    display: none;
+    position: absolute;
+    top: 1.35rem;
+    right: -3.5rem;
+    padding: 1rem;
+    
+}
+.tooltip .triangle{
+    height: 20px;
+    position: absolute;
+    left: 45%;
+    top:23px;
+    width: 20px;
+    z-index: -5;
+    background: crimson;
+    transform: rotate(45deg);
+}
+.tooltip .text{
+    padding: 5px;
+    background: crimson;
+    text-align: center;
+    border-radius: 8px;
+    color: azure;
+    width:150px;
+    margin-top: 1rem;
+}
+.alert-message-buttons{
+    position: absolute;
+    bottom: 2rem;
+    width: 800px;
+    left: 22%;
+    padding: 1rem;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+.alert-message-buttons button{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    font-size: 1.54rem;
+    border: 2px solid azure;
+    color: azure;
+}
+button.error{
+    background: red;
+}
+button.warning{
+    background: rgb(255, 230, 0);
+    color:#000000;
+}
+button.info{
+    background: rgb(0, 68, 255);
+}
+button.success{
+    background: rgb(0, 255, 13);
+    color: #000000;
+}
+button.alert{
+    background: orangered;
+}
+.alert-messages{
+    position: absolute;
+    top: 0;
+    padding:1rem;
+    width: 330px;
+    margin-top: 1rem;
+    gap: 1rem;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    align-items: center;
+    overflow: hidden;
+    justify-content: flex-start;
+    height: 200px;
+    background: transparent;
+    right: 0;
+}
+.alert-box{
+    width: 320px;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+    padding: 1rem;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.alert-box::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    bottom: 0;
+    left: 0;
+    animation: width alternate 3s ease infinite;
+}
+.error{
+    color: red;
+    border: 2px solid red;
+}
+.error::after{
+    background: rgb(255, 0, 0);
+}
+.alert{
+    color: orangered;
+    border: 2px solid orangered;
+}
+.alert::after{
+    background: orangered;
+}
+.info{
+    color: blue;
+    border: 2px solid blue;
+}
+.info::after{
+    background: blue;
+}
+.warning{
+    color: black;
+    border: 2px solid rgb(255, 251, 0);
+}
+.warning::after{
+    background: rgb(255, 251, 0);
+}
+.success{
+    color:black;
+    border: 2px solid rgb(43, 255, 0);
+}
+.success::after{
+    background: rgb(43, 255, 0);
+}
+@keyframes width {
+    100%{
+        width: 0;
+    }
+}
+.drop-down-container{
+    position: relative;
+    overflow: hidden;
+    height: 45px;
+}
+.drop-down-container:hover{
+    height: 300px;
+}
+.drop-down-container button{
+    z-index: 500;
+}
+.drop-down-links{
+    position: absolute;
+    display: flex;
+    top: -10rem;
+    background: crimson;
+    z-index: -50;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+    height: 150px;
+    border: 2px solid crimson;
+    gap: 2px;
+    border-radius: 4px;
+}
+.drop-down-links a{
+    text-decoration: none;
+    color: crimson;
+    background: azure;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+}
+.aside-bar-container{
+    position: absolute;
+    left: -200px;
+    height: 100vh;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: crimson;
+}
+.aside-bar-container button{
+    position: absolute;
+    top: 0;
+    right: -40px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    background: crimson;
+    border: none;
+    font-size: 1.54rem;
+    color: azure;
+}
+.aside-bar-container ul{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    list-style: none;
+    color: #fff;
+
+}

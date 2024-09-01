@@ -93,6 +93,7 @@ function showMoreDetails (moreWeatherDetails) {
                 windDir:data.current.wind_dir,
                 cloud:data.current.cloud
             }
+            console.log(data.current.condition.icon)
             // const airQualityIndex = data.current.air_quality
             showMoreDetails(moreWeatherDetails)
         } catch (error) {
