@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./script.js" defer></script>
+    <script type="module" src="./utilsFunc.js" defer></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="modale-container">
+        <div class="modale">
+            <h1>Welcome To Expense Tracker</h1>
+            <div class="buttons-controls">
+                <button class="register-btn">Register</button>
+                <span>Or</span>
+                <button class="login-btn">Login</button>
+            </div>
+        </div>
+    </div>
+    <div class="register-form-container">
+        <form class="registration-form">
+            <h1>expense tracker</h1>
+            <div class="input-box">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="registration-name" placeholder="John Doe...">
+            </div>
+            <div class="input-box">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="registration-email" placeholder="abc@xyz.com">
+            </div>
+            <div class="input-box password-box">
+                <span class="hidden-password"><ion-icon name="eye-outline"></ion-icon></span>
+                <label for="password">Password</label>
+                <input type="password" name="password" autocomplete="false" id="registration-password"
+                    placeholder="Password">
+            </div>
+            <div class="input-box">
+                <label for="image">Set Your Avatar</label>
+                <input type="file" name="image" id="registration-image">
+            </div>
+            <div class="input-box">
+                <label for="cash">Cash In Hand</label>
+                <input type="number" name="cash" id="registration-cash" placeholder="Cash In Hand $">
+            </div>
+            <div class="input-box">
+                <button type="submit">Get Started</button>
+            </div>
+        </form>
+    </div>
+    <div class="login-form-container">
+        <form class="login-form">
+            <h1>Please Login To Proceed</h1>
+            <div class="input-box">
+                <label for="login-name">Name</label>
+                <input type="text" name="name" id="login-name" placeholder="John Doe...">
+            </div>
+            <div class="input-box login-password-box">
+                <span class="login-hidden-password"><ion-icon name="eye-outline"></ion-icon></span>
+                <label for="login-password">Password</label>
+                <input type="password" name="password" autocomplete="false" id="login-password" placeholder="Password">
+            </div>
+            <div class="input-box">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="transaction-container">
+        <button type="button" class="hide-transaction-form">
+            <ion-icon name="close-circle-outline"></ion-icon>
+        </button>
+        <form id="transaction-form">
+            <div class="input-box">
+                <label for="transaction-name">Transaction Name</label>
+                <input type="text" name="transaction-name" placeholder="Food... , Rent..." id="transaction-name">
+            </div>
+            <div class="input-box">
+                <label for="transaction-type">Transaction Type</label>
+                <select name="transaction-type" id="transaction-type">
+                    <option value="expense">Expense</option>
+                    <option value="income">Income</option>
+                </select>
+            </div>
+            <div class="input-box">
+                <label for="transaction-amount">Transaction Amount</label>
+                <input type="number" name="transaction-amount" placeholder="$$$$$" id="transaction-amount">
+            </div>
+            <div class="input-box">
+                <label for="transaction-remarks">Transaction Remarks</label>
+                <textarea name="transaction-remarks" id="transaction-remarks"></textarea>
+            </div>
+            <div class="input-box">
+                <button type="submit">Transact</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="dashboard-container">
+        <h1>Income & Expense Tracker</h1>
+        <button type="button" class="show-transaction-form">
+            <ion-icon name="add-circle-outline"></ion-icon>
+        </button>
+        <div class="dashboard-details">
+            <div class="dashboard-detail aside-bar"></div>
+            <div class="dashboard-detail cash-in-hand"></div>
+            <div class="dashboard-detail total-expense"></div>
+            <div class="dashboard-detail total-income"></div>
+            <div class="dashboard-detail remaining-amount"></div>
+        </div>
+        <div class="transactions-details-container">
+            <h1>Transactions Details</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Remarks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    Do Some Transaction To Appear
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
