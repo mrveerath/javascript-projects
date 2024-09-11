@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="./script.js" defer></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <h1>Drag&Drop</h1>
+        <form class="input-form">
+            <input type="text" placeholder="Enter Your Text..." class="text-input">
+            <select name="text-type" id="text-type">
+                <option value="task">Task</option>
+                <option value="quote">Quote</option>
+                <option value="joke">Joke</option>
+            </select>
+            <button type="submit">Add</button>
+        </form>
+    </nav>
+    <div class="boards">
+        <div class="task-board board"></div>
+        <div class="quote-board board"></div>
+        <div class="joke-board board"></div>
+    </div>
+</body>
+
+</html>
