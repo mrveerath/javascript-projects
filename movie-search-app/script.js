@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", () => {
-    let apiKey = "4de62105c9b4ea9c282f3231a71aed81";
     const singleMovieContainer = document.querySelector(".show-Single-movie-detail");
     const closeBtn = document.querySelector(".close-btn");
     
