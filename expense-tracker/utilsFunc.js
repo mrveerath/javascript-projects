@@ -1,4 +1,4 @@
-export const userAuth = async (userData, url) => {
+const userAuth = async (userData, url) => {
     try {
         const response = await fetch(url, {
             method: 'Post',
@@ -19,7 +19,7 @@ export const userAuth = async (userData, url) => {
 }
 
 // getting item from local storage
-export const getDataFromLocalStorage = async (key) => {
+const getDataFromLocalStorage = async (key) => {
     try {
         const response = localStorage.getItem(key);
         if (response) {
@@ -51,7 +51,7 @@ export const getDataFromLocalStorage = async (key) => {
     return null;
 };
 
-export const setDataToLocalStorage = async (key, data) => {
+const setDataToLocalStorage = async (key, data) => {
     try {
         // Create a copy of data to avoid mutating original object
         const dataCopy = { ...data };
@@ -68,7 +68,7 @@ export const setDataToLocalStorage = async (key, data) => {
 
 
 // converting image to base64
-export const imageToBase64 = (imageFile) => {
+const imageToBase64 = (imageFile) => {
     return new Promise((resolve, reject) => {
         const reader = new FileReader()
         reader.readAsDataURL(imageFile)
@@ -78,7 +78,7 @@ export const imageToBase64 = (imageFile) => {
 }
 
 // converting base64 to image 
-export const base64ToImage = (imageStr) => {
+const base64ToImage = (imageStr) => {
     return new Promise((resolve, reject) => {
         if (!imageStr || typeof imageStr !== 'string') {
             reject(new Error("Invalid Base64 string. Expected a string."));
@@ -96,7 +96,7 @@ export const base64ToImage = (imageStr) => {
 };
 
 // User Data Type  
-export class User {
+class User {
     constructor(
         userId,
         userName,
@@ -116,7 +116,7 @@ export class User {
     }
 }
 //Transaction Type
-export class Transaction {
+class Transaction {
     constructor(
         transactionId,
         transactionName,
@@ -133,7 +133,7 @@ export class Transaction {
 }
 //Transaction Arrya Type
 
-export class Transactions{
+class Transactions{
     constructor(){
         this.length = 0,
         this.data = [],
@@ -206,7 +206,7 @@ export class Transactions{
     }
 }
 
-export const totolSum = (array) => {
+const totolSum = (array) => {
     let sum = 0;
     for (let index = 0; index < array.length; index++) {
         sum += Number(array[index])

@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.4s ease-in;
+    font-family: "Poppins", system-ui;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background: azure;
+    color: azure;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+form{
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 8px;
+}
+form h1{
+    color: red;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+form button{
+    height: 40px;
+    width: 100%;
+    background: red;
+    color: azure;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+}
+.hour-input label{
+    color: #E4003A;
+    text-transform: uppercase;
+}
+.minute-input label{
+    color: #EB5B00;
+    text-transform: uppercase;
+}
+.second-input label{
+    color: #B60071;
+    text-transform: uppercase;
+}
+.hour-input select{
+    background: #E4003A;
+}
+.second-input select{
+    background: #B60071;
+}
+.minute-input select{
+    background: #EB5B00;
+}
+.input-container select{
+    color: azure;
+    width: 100%;
+    border:none;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding-left: 1rem;
+    outline: none;
+    height: 40px;
+}
+.input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.inputs{
+    display: flex;
+    gap: 1rem;
+}
+.input-container{
+    display: flex;
+    width: 80px;
+    flex-direction: column;
+}
+.timer-container{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+.inner-timer-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #2f0015;
+    border-radius: 8px;
+}
+.timer{
+    height: 150px;
+    width: 150px;
+    font-size: 4rem;
+    text-align: center;
+    border-radius: 50%;
+    padding: 10px;
+}
+.timer p{
+    height: 100%;
+    width: 100%;
+    background: #2f0015;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+}
+.timer-controls{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    justify-content: center;
+}
+.timer-controls button{
+    height: 45px;
+    font-size: 1rem;
+    width: 210px;
+}
