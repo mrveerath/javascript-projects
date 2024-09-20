@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.2s ease 0.5s;
+    font-family: "Poppins", system-ui;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    padding: 2rem;
+    background: dodgerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    height: 100%;
+    width: 500px;
+    padding:  2rem;
+    border-radius: 4px;
+    background: #fff;
+}
+form fieldset{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 2px solid dodgerblue;
+    gap: 2rem;
+}
+.personal-inforamtion-form{
+    display: flex;
+}
+form fieldset legend{
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: dodgerblue;
+    color: #fff;
+}
+fieldset .input-box{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: start;
+    justify-content: start;
+}
+.show-password{
+    position: absolute;
+    top: 1.6rem;
+    height: 40px;
+    width: 40px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    cursor: pointer;
+    color: dodgerblue;
+    background: transparent;
+    text-transform: capitalize;
+    border: none;
+    right: 10px;
+}
+.err-msg{
+    color: red;
+    font-size: 0.8rem;
+}
+fieldset .input-box label{
+    color: dodgerblue;
+}
+fieldset .input-box input{
+    width: 100%;
+    border: 2px solid dodgerblue;
+    padding-left: 1rem;
+    font-size: 1rem;
+    outline: none;
+    color: dodgerblue;
+    border-radius: 4px;
+    height: 40px;
+}
+fieldset .input-box input:focus{
+    color: red;
+    border-color: red;
+}
+fieldset .input-box:last-child{
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttons button{
+    height: 40px;
+    width: 45%;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+.reset-btn{
+    background: red;
+    cursor: pointer;
+    border: 2px solid red;
+}
+.reset-btn:hover{
+    background: #fff;
+    border: 2px solid red;
+    color: red;
+}
+.submit-btn{
+    background: dodgerblue;
+    cursor: pointer;
+    border: 2px solid dodgerblue;
+}
+.submit-btn:hover{
+    background: #fff;
+    border: 2px solid dodgerblue;
+    color: dodgerblue;
+}
+.profile-information-form{
+    display: none;
+}
+.profile-input-box{
+    display: flex;
+    flex-direction: column;
+}
+.gender-options{
+    display: flex;
+    gap: 1rem;
+}
+.gender-options label{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+.gender-options label input{
+    height: 20px;
+    width: 20px;
+}
+.profile-input-box:last-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.profile-input-box p{
+    color: dodgerblue;
+}
+.profile-input-box label{
+    color: dodgerblue;
+}
+.profile-input-box input{
+    height: 40px;
+    color: dodgerblue;
+    border-radius: 4px;
+    border: 2px solid dodgerblue;
+    padding-inline: 1rem;
+}
+.profile-input-box textarea{
+    padding: 1rem;
+    border: 2px solid dodgerblue;
+    border-radius: 4px;
+}

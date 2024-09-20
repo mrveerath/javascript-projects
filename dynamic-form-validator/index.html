@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="form-container">
+        <div class="personal-inforamtion-form">
+            <form class="personal-inforamation">
+                <fieldset>
+                    <legend>Personal Information</legend>
+                    <div class="input-box">
+                        <label for="full-name">Full Name</label>
+                        <input type="text" name="full-name" id="full-name">
+                        <span class="full-name-error-message err-msg"></span>
+                    </div>
+                    <div class="input-box">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email">
+                        <span class="email-error-message err-msg"></span>
+                    </div>
+                    <div class="input-box">
+                        <label for="user-name">User Name</label>
+                        <input type="text" name="user-name" id="user-name">
+                        <span class="user-name-error-message err-msg"></span>
+                    </div>
+                    <div class="input-box passwrod-field">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                        <span class="password-error-message err-msg"></span>
+                        <button type="button" id="show-original-password"
+                            class="show-password original-password">show</button>
+                    </div>
+                    <div class="input-box passwrod-field">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" name="confirm-password" id="confirm-password">
+                        <span class="confirm-password-error-message err-msg"></span>
+                        <button type="button" class="show-password confirm-password">show</button>
+                    </div>
+                    <div class="input-box buttons">
+                        <button class="reset-btn" type="reset">Reset</button>
+                        <button class="submit-btn" type="submit">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="profile-information-form">
+            <form class="profile-information">
+                <fieldset>
+                    <legend>Profile Information</legend>
+                    <div class="profile-input-box">
+                        <p>Gender</p>
+                        <div class="gender-options">
+                            <label for="male">
+                                <input type="radio" name="gender" id="male" value="Male">
+                                <span>Male</span>
+                            </label>
+                            <label for="female">
+                                <input type="radio" name="gender" id="female" value="Female">
+                                <span>Female</span>
+                            </label>
+                            <label for="others">
+                                <input type="radio" name="gender" id="others" value="Others">
+                                <span>Others</span>
+                            </label>
+                        </div>
+                        <span class="gender-error-message err-msg"></span>
+                    </div>
+                    <div class="profile-input-box">
+                        <label for="dateOfBirth">Date Of Birth</label>
+                        <input type="date" name="date-of-birth" id="date-of-birth">
+                        <span class="err-msg birth-date-error-message"></span>
+                    </div>
+                    <div class="profile-input-box">
+                        <label for="bio">Bio</label>
+                        <textarea name="bio" id="bio"></textarea>
+                        <div class="bio-error-message err-msg"></div>
+                    </div>
+                    <div class="profile-input-box">
+                        <label for="image">Profile Image</label>
+                        <input type="file" name="profile-pic" id="profile-pic" accept="image">
+                        <span class="err-msg avatar-error-message"></span>
+                    </div>
+                    <div class="profile-input-box buttons">
+                        <button type="reset" class="reset-btn">Reset</button>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
