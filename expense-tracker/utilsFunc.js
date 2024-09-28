@@ -213,3 +213,4 @@ const totolSum = (array) => {
     }
     return sum
 }
+

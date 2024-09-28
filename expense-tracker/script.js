@@ -2,28 +2,28 @@
 let admin = null
 
 //Password Visibility Control Of Registration
-const passwordField = document.querySelector('#password')
-const controlBtn = document.querySelector('.hidden-password')
+const passwordField = document.querySelector('#registration-password')
+const controlBtn = document.querySelector('.register-hidden-password')
 controlBtn.addEventListener('click', event => {
-    if (event.target.name === 'eye-outline') {
+    if (event.target.innerText === 'Show') {
         passwordField.type = 'text'
-        event.target.name = 'eye-off-outline'
+        event.target.innerText = 'Hide'
     } else {
         passwordField.type = 'password'
-        event.target.name = 'eye-outline'
+        event.target.innerText = 'Show'
     }
 })
 
 //Password Visibility Control Of Login
 const loginPasswordField = document.querySelector('#login-password')
 const loginControlBtn = document.querySelector('.login-hidden-password')
-loginControlBtn.addEventListener('click', event => {
-    if (event.target.name === 'eye-outline') {
+loginControlBtn.addEventListener('click', (event) => {
+    if (event.target.innerText === 'Show') {
         loginPasswordField.type = 'text'
-        event.target.name = 'eye-off-outline'
+        event.target.innerText = "Hide"
     } else {
         loginPasswordField.type = 'password'
-        event.target.name = 'eye-outline'
+        event.target.innerText = "Show"
     }
 })
 
@@ -229,21 +229,131 @@ function representData(data) {
     remainingAmountContainer.innerHTML = `<span>Remaining Amount</span>
         <h2><ion-icon name="layers-outline"></ion-icon><span>${amountRemains}</span></h2>
         `
-    transactions.forEach(transaction => {
-        console.log(transaction)
-        const transactionTime = new Date(transaction.transactionId).toDateString()
-        console.log(transactionTime)
-        const tr = document.createElement('tr')
-        tr.className = transaction.transactionType
-        const dataToShow = `<td>${transactionTime}</td>
-            <td>${transaction.transactionName}</td>
-            <td>${transaction.transactionAmount}</td>
-            <td>${transaction.transactionRemarks}</td>`
-        tr.innerHTML = dataToShow
-        transactionsContainer.append(tr)
-    })
+        transactions.forEach(transaction => {
+            const tbody = document.querySelector("table tbody");
+        
+            // Remove the default text if this is the first transaction
+            if (tbody.textContent.includes("Do Some Transaction To Appear")) {
+                tbody.innerHTML = "";  // Clear the default message
+            }
+        
+            // Create a new row for the transaction
+            const tr = document.createElement("tr");
+            tr.className = `${transaction.transactionType}`;
+        
+            // Controls (edit/save/delete)
+            const controlsCell = document.createElement("td");
+        
+            // Edit button
+            const editTransaction = document.createElement("button");
+            editTransaction.innerHTML = `<i class='bx bx-edit'></i>`;
+            editTransaction.className = 'edit-button';
+        
+            // Delete button
+            const deleteTransaction = document.createElement("button");
+            deleteTransaction.innerHTML = `<i class='bx bxs-trash'></i>`;
+            deleteTransaction.className = 'delete-button';
+        
+            // Save button
+            const saveTransaction = document.createElement("button");
+            saveTransaction.innerHTML = `<i class='bx bx-save'></i>`;
+            saveTransaction.className = 'save-button';
+            saveTransaction.style.display = 'none'; // Hide save button initially
+        
+            // Add buttons to controls
+            const controls = document.createElement("div");
+            controls.className = "controls";
+            controls.appendChild(editTransaction);
+            controls.appendChild(deleteTransaction);
+            controls.appendChild(saveTransaction);
+        
+            controlsCell.appendChild(controls);
+            tr.appendChild(controlsCell);
+        
+            // Transaction date
+            const dateCell = document.createElement("td");
+            const transactionDate = new Date(transaction.transactionId).toLocaleDateString();
+            dateCell.textContent = transactionDate;
+            tr.appendChild(dateCell);
+        
+            // Transaction name input
+            const nameCell = document.createElement("td");
+            const name = document.createElement("input");
+            name.type = "text";
+            name.value = transaction.transactionName;
+            name.disabled = true;
+            nameCell.appendChild(name);
+            tr.appendChild(nameCell);
+        
+            // Transaction amount input
+            const amountCell = document.createElement("td");
+            const amount = document.createElement("input");
+            amount.type = "number";
+            amount.value = transaction.transactionAmount;
+            amount.disabled = true;
+            amountCell.appendChild(amount);
+            tr.appendChild(amountCell);
+        
+            // Transaction remarks input
+            const remarksCell = document.createElement("td");
+            const remarks = document.createElement("textarea");
+            remarks.type = "text";
+            remarks.value = transaction.transactionRemarks;
+            remarks.disabled = true;
+            remarksCell.appendChild(remarks);
+            tr.appendChild(remarksCell);
+        
+            // Event Listeners for Buttons
+            editTransaction.addEventListener('click', () => {
+                name.disabled = false;
+                name.style.border = "1px solid red"
+                amount.disabled = false;
+                amount.style.border = "1px solid red"
+                remarks.disabled = false;
+                remarks.style.border = "1px solid red"
+                editTransaction.style.display = 'none'; // Hide edit button
+                saveTransaction.style.display = 'inline'; // Show save button
+            });
+        
+            saveTransaction.addEventListener('click', () => {
+                // Save updated transaction values
+                transaction.transactionName = name.value;
+                transaction.transactionAmount = amount.value;
+                transaction.transactionRemarks = remarks.value;
+                name.disabled = true;
+                amount.disabled = true;
+                remarks.disabled = true;
+                saveTransaction.style.display = 'none'; // Hide save button
+                editTransaction.style.display = 'inline'; // Show edit button
+        
+                // Optionally, update your data structure or backend here
+            });
+        
+            deleteTransaction.addEventListener('click', async () => {
+                // Get the ID of the transaction to delete
+                const transactionIdToDelete = transaction.transactionId;
+        
+                // Remove the transaction from the admin's transactions
+                admin.userTransactions.deleteById(transactionIdToDelete);
+        
+                // Update local storage
+                await setDataToLocalStorage(admin.userName, admin);
+        
+                // Remove the row from the table
+                tbody.removeChild(tr);
+        
+                // Re-represent the updated data
+                representData(admin);
+            });
+        
+            // Append the row to the table body
+            tbody.appendChild(tr);
+        });
+        
+        
+        
+
 }
-// user definded functions
 const userAuth = async (userData, url) => {
     try {
         const response = await fetch(url, {
@@ -351,7 +461,7 @@ class User {
         userImage,
         cashInHand,
         userTransactions,
-    ){
+    ) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;
@@ -369,49 +479,49 @@ class Transaction {
         transactionType,
         transactionAmount,
         transactionRemarks
-    ){
+    ) {
         this.transactionId = transactionId
         this.transactionName = transactionName,
-        this.transactionType = transactionType,
-        this.transactionAmount = transactionAmount,
-        this.transactionRemarks = transactionRemarks
+            this.transactionType = transactionType,
+            this.transactionAmount = transactionAmount,
+            this.transactionRemarks = transactionRemarks
     }
 }
 //Transaction Arrya Type
 
-class Transactions{
-    constructor(){
+class Transactions {
+    constructor() {
         this.length = 0,
-        this.data = [],
-        this.type = Transaction
+            this.data = [],
+            this.type = Transaction
     }
-    push(element){
-        if(!(element instanceof this.type)){
+    push(element) {
+        if (!(element instanceof this.type)) {
             throw new Error(`${this.type} Missmatched`)
         }
         this.data[this.length] = element,
-        this.length++
+            this.length++
         return this.length
     }
-    pop(){
-        if(this.length === 0) return undefined
+    pop() {
+        if (this.length === 0) return undefined
         this.length--
         const lastElement = this.data[this.length]
         delete this.data[this.length]
         return lastElement
     }
-    getByIndex(index){
+    getByIndex(index) {
         return this.data[index]
     }
-    getById(id){
+    getById(id) {
         return Object.values(this.data).find(item => item.id === id)
     }
-    deleteByIndex(index){
-        if(index >=0 && index < this.length){
+    deleteByIndex(index) {
+        if (index >= 0 && index < this.length) {
             delete this.data[index]
             this.shiftItems(index)
         }
-        else{
+        else {
             throw new Error("Index Out Of Range")
         }
     }
@@ -430,23 +540,23 @@ class Transactions{
             throw new Error("Transaction With This Id Not Found");
         }
     }
-    
-    shiftItems(index){
-        for(let i = index; i < this.length -1; i++){
+
+    shiftItems(index) {
+        for (let i = index; i < this.length - 1; i++) {
             this.data[i] = this.data[i + 1]
         }
-        delete this.data[this.length-1]
+        delete this.data[this.length - 1]
         this.length--;
     }
-    update(id,newElement){
-        if(!(newElement instanceof this.type)){
+    update(id, newElement) {
+        if (!(newElement instanceof this.type)) {
             throw new Error("Unmatched Data Type")
         }
         const index = Object.values(this.data).findIndex(item => item.transactionId === id)
-        if(index !== -1){
+        if (index !== -1) {
             this.data[index] = newElement
         }
-        else{
+        else {
             throw new Error("Cannot Find Data With This Id")
         }
     }

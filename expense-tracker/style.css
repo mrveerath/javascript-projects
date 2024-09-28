@@ -4,6 +4,7 @@
     box-sizing: border-box;
     transition: all 0.5s ease;
     font-family: "Poppins", system-ui;
+    user-select: none;
 }
 body{
     height: 100vh;
@@ -138,18 +139,18 @@ input[type="number"] {
 .password-box{
     position: relative;
 }
-.hidden-password{
+.register-hidden-password{
     position: absolute;
     bottom: 0;
     left:0;
     background: #fff;
     height: 45px;
-    width: 45px;
+    width: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border: 2px solid seagreen;
     color: seagreen;
     cursor: pointer;
@@ -186,12 +187,12 @@ input[type="number"] {
     left:0;
     background: #fff;
     height: 45px;
-    width: 45px;
+    width: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    font-size: 1.5rem;
+    font-size: 1rem;
     border: 2px solid seagreen;
     color: seagreen;
     cursor: pointer;
@@ -268,7 +269,7 @@ input[type="number"] {
     text-align: center;
     color: rgb(255, 0, 76);
 }
-.dashboard-container button{
+.dashboard-container .show-transaction-form{
     position: absolute;
     bottom: 4rem;
     right: 4rem;
@@ -375,29 +376,34 @@ input[type="number"] {
     flex-direction: column;
     width: 100%;
 }
-.transactions-details-container table thead{
-    width: 100%;
-    gap: 2rem;
+thead{
+    width: fit-content;
     color: seagreen;
-    font-size: 1.5rem;
-    font-weight: 300;
-    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    height: fit-content;
+    align-items: center;
+    padding-inline: 2rem;
+    width: 100%;
 }
 table tbody{
     overflow: scroll;
 }
-.transactions-details-container table tr{
-    width: 100%;
+tr{
+    width:fit-content;
     display: flex;
     justify-content: space-between;
     margin-top: 1rem;
- 
-    /* gap: 2rem; */
+    height: fit-content;
+    align-items: center;
+    padding-inline: 2rem;
+    width: 100%;
+    overflow: hidden;
 }
 tr.income{
     background: rgb(0, 84, 252);
     color: #fff;
-   
 }
 tr.expense{
     background: red;
@@ -408,5 +414,37 @@ th,td{
     align-items: center;
     height: 50px;
     justify-content: center;
-    width: 300px;
+    height: fit-content;
+    width: 200px;
+}
+tr input{
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 1rem;
+    overflow: visible;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: #fff;
+}
+tr textarea{
+    color: #fff;
+    background: transparent;
+    outline: none;
+    border: none;
+    resize: none;
+    padding: 1rem;
+    height: fit-content;
+}
+.controls button {
+    margin: 0 5px; /* Space between buttons */
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    outline: none;
+    border: none;
+    font-size: 1.6rem;
+    background: none;
+    color: #fff;
 }
