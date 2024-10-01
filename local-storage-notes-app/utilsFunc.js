@@ -1,4 +1,4 @@
-export class Note {
+class Note {
     constructor(id, type, title, description) {
         if (!id || !type || !title || !description) {
             throw new Error("All fields (id, type, title, description) are required and cannot be empty.");
@@ -10,7 +10,7 @@ export class Note {
     }
 }
 
-export class Notes {
+class Notes {
     constructor(existingNotes = []) {
         this.type = Note;
         this.data = existingNotes;

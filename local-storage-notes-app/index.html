@@ -4,168 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <script src="./script.js" defer></script>
-    <script type="module" src="./utilsFunc.js"></script>
-    <title>Local Note App</title>
+    <title>Futuristic Note App</title>
 </head>
 
 <body>
-    <div class="notes-form-container">
+    <!--Noteform-->
+    <div class="notes-form-container" id="notesFormContainer">
         <div class="close">
-            <button class="hide-note-container"><i class='bx bx-x-circle'></i></button>
+            <button class="hide-note-container"><i class='bx bx-x-circle'></i> Close</button>
         </div>
         <div class="notes-form">
-            <form action="#">
-                <select class="notes-types-dropdown">
-                    <option style="background-color: #8B0000; color: white;">Personal</option>
-                    <option style="background-color: #006400; color: white;">Educational</option>
-                    <option style="background-color: #00008B; color: white;">Professional</option>
-                    <option style="background-color: #8B008B; color: white;">Coding</option>
-                    <option style="background-color: #008B8B; color: white;">Financial</option>
-                    <option style="background-color: #FF8C00; color: white;">Health</option>
-                    <option style="background-color: #4B0082; color: white;">Creative</option>
-                    <option style="background-color: #2F4F4F; color: white;">Travel</option>
-                    <option style="background-color: #8B4513; color: white;">Household</option>
-                    <option style="background-color: #191970; color: white;">Miscellaneous</option>
+            <form id="noteForm">
+                <input type="hidden" id="noteId" value="">
+                <select class="note-type-dropdown" id="noteTypeDropdown">
+                    <option value="Personal">Personal</option>
+                    <option value="Educational">Educational</option>
+                    <option value="Professional">Professional</option>
+                    <option value="Coding">Coding</option>
+                    <option value="Financial">Financial</option>
+                    <option value="Health">Health</option>
+                    <option value="Creative">Creative</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Household">Household</option>
+                    <option value="Miscellaneous">Miscellaneous</option>
                 </select>
-                <input type="text" name="note-title" placeholder="Note Title" id="note-title">
-                <textarea placeholder="Write Some Notes..." name="notes-texts" id="notes-texts"></textarea>
-                <button>Add To Notes</button>
+                <input type="text" name="note-title" placeholder="Note Title" id="noteTitle" required>
+                <textarea placeholder="Write Some Notes..." name="notes-texts" id="noteText" required></textarea>
+                <button type="submit" id="addNoteBtn">Save Note</button>
             </form>
         </div>
     </div>
+    
+
     <nav class="nav-bar">
         <div class="user">
-            <img src="./Mask group.png" height="45" width="45" alt="">
+            <img src="https://via.placeholder.com/45" height="45" width="45" alt="User Image">
             <span class="user-name">Pawan Kumar</span>
         </div>
         <div class="title">All Notes</div>
         <div class="controls">
-            <div class="search-box">
-                <input placeholder="Note Types..." type="text" name="" id="">
-                <button class="btn-with-icon "><i class='bx bx-search'></i></button>
-            </div>
-            <button class="btn-with-text visible-note-btn">
+            <button class="btn-with-text add-note-btn" id="showFormBtn">
                 <i class='bx bx-plus-circle'></i>
-                 <span class="btn-text">Add Notes</span></button>
+                <span class="btn-text">Add Notes</span>
+            </button>
         </div>
     </nav>
-    <aside class="aside-bar">
-        <ul class="notes-types-list">
-            <li style="background-color: #8B0000; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#FF5733'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#8B0000'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Personal</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #006400; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#33FF57'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#006400'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Educational</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #00008B; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#3357FF'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#00008B'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Professional</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #8B008B; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#FF33A6'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#8B008B'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Coding</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #008B8B; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#33FFF2'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#008B8B'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Financial</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #FF8C00; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#FF8F33'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#FF8C00'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Health</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #4B0082; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#BB33FF'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#4B0082'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Creative</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #2F4F4F; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#33FFBB'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#2F4F4F'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Travel</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #8B4513; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#FFBD33'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#8B4513'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Household</span><p class="note-values">10</p>
-            </li>
-            <li style="background-color: #191970; color: white; transition: background-color 0.3s ease;"
-                onmouseover="this.style.backgroundColor='#3383FF'; this.style.color='black';"
-                onmouseout="this.style.backgroundColor='#191970'; this.style.color='white';">
-                <span class="color-mark"></span><span class="note-type">Miscellaneous</span><p class="note-values">10</p>
-            </li>
-        </ul>
-        
-    </aside>
-    <div class="notes-container">
-        <div class="personal">
-            <div class="uppers-details">
-                <h1>title</h1>
-                <span>Personal</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum repudiandae unde nihil vel enim ut, praesentium fugit sequi quas pariatur consequatur possimus cum ducimus provident nostrum natus rerum, accusantium maxime saepe id ab veritatis? Quam mollitia tempore voluptate eos nulla.</p>
-            <div class="others-detail">
-                <div class="controls">
-                    <button><i class='bx bxs-file-blank'></i></button>
-                    <button><i class='bx bxs-edit-alt'></i></button>
-                    <button><i class='bx bx-x'></i></button>
-                </div>
-                <div class="time-date">
-                    <span class="note-time">11:45</span>
-                    <span class="note-date">2022:11:24</span>
-                </div>
-            </div>
-        </div>
-        <div class="personal">
-            <div class="uppers-details">
-                <h1>title</h1>
-                <span>Personal</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum repudiandae unde nihil vel enim ut, praesentium fugit sequi quas pariatur consequatur possimus cum ducimus provident nostrum natus rerum, accusantium maxime saepe id ab veritatis? Quam mollitia tempore voluptate eos nulla.</p>
-            <div class="others-detail">
-                <div class="controls">
-                    <button><i class='bx bxs-file-blank'></i></button>
-                    <button><i class='bx bxs-edit-alt'></i></button>
-                    <button><i class='bx bx-x'></i></button>
-                </div>
-                <div class="time-date">
-                    <span class="note-time">11:45</span>
-                    <span class="note-date">2022:11:24</span>
-                </div>
-            </div>
-        </div>
-        <div class="personal">
-            <div class="uppers-details">
-                <h1>title</h1>
-                <span>Personal</span>
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum repudiandae unde nihil vel enim ut, praesentium fugit sequi quas pariatur consequatur possimus cum ducimus provident nostrum natus rerum, accusantium maxime saepe id ab veritatis? Quam mollitia tempore voluptate eos nulla.</p>
-            <div class="others-detail">
-                <div class="controls">
-                    <button><i class='bx bxs-file-blank'></i></button>
-                    <button><i class='bx bxs-edit-alt'></i></button>
-                    <button><i class='bx bx-x'></i></button>
-                </div>
-                <div class="time-date">
-                    <span class="note-time">11:45</span>
-                    <span class="note-date">2022:11:24</span>
-                </div>
-            </div>
+
+    <div class="content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Filter by Type</h3>
+            <ul>
+                <li data-filter="All">All</li>
+                <li data-filter="Personal">Personal</li>
+                <li data-filter="Educational">Educational</li>
+                <li data-filter="Professional">Professional</li>
+                <li data-filter="Coding">Coding</li>
+                <li data-filter="Financial">Financial</li>
+                <li data-filter="Health">Health</li>
+                <li data-filter="Creative">Creative</li>
+                <li data-filter="Travel">Travel</li>
+                <li data-filter="Household">Household</li>
+                <li data-filter="Miscellaneous">Miscellaneous</li>
+            </ul>
+        </aside>
+
+        <!-- Notes Container -->
+        <div class="notes-container" id="notesContainer">
+            <!-- Notes will be dynamically added here -->
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
