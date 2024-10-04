@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="./tic-tac-toe.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap" rel="stylesheet">
+    <script src="./sript.js" defer></script>
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <div class="players-form-container">
+        <h1>Welcome To Tic Tac toe</h1>
+        <div class="form">
+            <div class="board-sizes">
+                <label for="board-size">Select The Board Sizes</label>
+                <div class="sizes-buttons">
+                    <button>3</button><button>4</button><button>5</button>
+                </div>
+            </div>
+            <form action="#">
+                <div class="players">
+                    <div class="player1">
+                        <i class='bx bxs-star'></i>
+                        <input type="text" name="player-one-name" placeholder="First Player Name..." id="player-one-name" required>
+                    </div>
+                    <div class="player1">
+                        <i class='bx bxs-circle'></i>
+                        <input type="text" name="player-one-name" placeholder="Second Player Name..." id="player-two-name" required>
+                    </div>
+                </div>
+                <button type="submit">Play</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="game-container">
+        <h1>Tic Tac Toe</h1>
+        <div class="game-board-section">
+            <div class="player-one-board">
+                <div class="player-board">
+                    <i class='bx bxs-star'></i>
+                    <span class="player-one-name">Rajesh</span>
+                </div>
+            </div>
+            <div class="game">
+                <div class="game-board">
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-star'></i></button>
+                    <button><i class='bx bxs-star'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-star'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-star'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-star'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                    <button><i class='bx bxs-circle'></i></button>
+                </div>
+                <span class="player-turn">Rajesh Chance</span>
+            </div>
+            <div class="player-two-board">
+                <div class="player-board">
+                    <i class='bx bxs-circle'></i>
+                    <span class="player-two-name">pawan</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
