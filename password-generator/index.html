@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+    <title>Password Generator</title>
+</head>
+
+<body>
+    <div class="password-generator-container">
+        <div class="upper-container">
+            <div class="length">
+                <h3>Length Of Password</h3>
+                <div class="range">
+                    <input type="range" name="length-of-password" id="length-of-password" value="8" min="8" max="50">
+                    <span class="range-length">8</span>
+                </div>
+            </div>
+            <h3>Requirements</h3>
+            <div class="requirements">
+                <label for="uppercase">
+                    <input type="checkbox" name="uppercase" id="uppercase" checked> : Uppercase
+                </label>
+                <label for="lowercase">
+                    <input type="checkbox" name="lowercase" id="lowercase" checked> : Lowercase
+                </label>
+                <label for="number">
+                    <input type="checkbox" name="number" id="number" checked> : Number
+                </label>
+                <label for="number">
+                    <input type="checkbox" name="symbol" id="symbol" checked> : Special Character
+                </label>
+            </div>
+            <button class="generate-password">Generate Password</button>
+        </div>
+        <div class="lower-container">
+            <textarea name=" password-field" placeholder="Passwrod Dissappear Here..." disabled="true" id="password-field"></textarea>
+            <button class="copy-password"><i class='bx bxs-copy'></i></button>
+        </div>
+    </div>
+</body>
+
+</html>
