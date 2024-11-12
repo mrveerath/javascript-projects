@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Converter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <h1>Currency Converter</h1>
+            <p>Convert Your Any Currency</p>
+            <div class="converter">
+                <div class="input-box">
+                    <label for="from-currency">From</label>
+                    <div class="input">
+                        <select name="from-currency" id="from-currency">
+                        </select>
+                        <input type="number" id="fromAmount" placeholder="Amount">
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="to-currency">To</label>
+                    <div class="input">
+                        <select name="to-currency" id="to-currency">
+                        </select>
+                        <input type="number" id="toAmount" placeholder="Converted Amount" readonly>
+                    </div>
+                </div>
+                <button id="convert">Convert</button>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+    </script>
+</body>
+
+</html>
