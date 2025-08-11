@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Flip Clock</title>
+    <style>
+        .clock-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+
+        .flip-card {
+            width: 80px;
+            height: 120px;
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .inner-card-upper {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            top: 0;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #000;
+            z-index: 1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .inner-card-lower {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .upper {
+            height: 50%;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: bottom;
+            transition: transform 1s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .lower {
+            height: 50%;
+            background: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform-origin: top;
+            transition: transform 1s ease-in-out;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
+            border-radius: 0 0 4px 4px;
+        }
+
+        /* .flipping .upper {
+            transform: rotateX(-360deg);
+        } */
+
+        .flipping .lower {
+            transform: rotateX(360deg);
+        }
+
+        .colon {
+            font-size: 40px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div class="flip-card" id="hour1"></div>
+        <div class="flip-card" id="hour2"></div>
+        <span class="colon">:</span>
+        <div class="flip-card" id="min1"></div>
+        <div class="flip-card" id="min2"></div>
+        <span class="colon">:</span>
+        <div class="flip-card" id="sec1"></div>
+        <div class="flip-card" id="sec2"></div>
+    </div>
+
+    <script>
+        function createFlipCard(id, value) {
+            const card = document.getElementById(id);
+            card.innerHTML = `
+                <div class="inner-card-upper">${value}</div>
+                <div class="inner-card-lower">
+                    <div class="upper">${value}</div>
+                    <div class="lower">${value}</div>
+                </div>
+            `;
+        }
+
+        function updateFlipCard(id, oldValue, newValue) {
+            const card = document.getElementById(id);
+            if (oldValue !== newValue) {
+                card.classList.add('flipping');
+                const upperStatic = card.querySelector('.inner-card-upper');
+                const upper = card.querySelector('.upper');
+                const lower = card.querySelector('.lower');
+                
+                upperStatic.textContent = oldValue;
+                upper.textContent = oldValue;
+                lower.textContent = newValue;
+
+                setTimeout(() => {
+                    card.classList.remove('flipping');
+                    upperStatic.textContent = newValue;
+                    upper.textContent = newValue;
+                }, 600);
+            }
+        }
+
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+
+            const currentValues = {
+                hour1: document.getElementById('hour1').querySelector('.inner-card-upper').textContent[0] || '0',
+                hour2: document.getElementById('hour2').querySelector('.inner-card-upper').textContent[0] || '0',
+                min1: document.getElementById('min1').querySelector('.inner-card-upper').textContent[0] || '0',
+                min2: document.getElementById('min2').querySelector('.inner-card-upper').textContent[0] || '0',
+                sec1: document.getElementById('sec1').querySelector('.inner-card-upper').textContent[0] || '0',
+                sec2: document.getElementById('sec2').querySelector('.inner-card-upper').textContent[0] || '0'
+            };
+
+            updateFlipCard('hour1', currentValues.hour1, hours[0]);
+            updateFlipCard('hour2', currentValues.hour2, hours[1]);
+            updateFlipCard('min1', currentValues.min1, minutes[0]);
+            updateFlipCard('min2', currentValues.min2, minutes[1]);
+            updateFlipCard('sec1', currentValues.sec1, seconds[0]);
+            updateFlipCard('sec2', currentValues.sec2, seconds[1]);
+        }
+
+        // Initialize clock
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+
+        createFlipCard('hour1', hours[0]);
+        createFlipCard('hour2', hours[1]);
+        createFlipCard('min1', minutes[0]);
+        createFlipCard('min2', minutes[1]);
+        createFlipCard('sec1', seconds[0]);
+        createFlipCard('sec2', seconds[1]);
+
+        // Update every second
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>

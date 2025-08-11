@@ -1,0 +1,208 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Set global font family and background color */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Header section */
+.score-section {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-bottom: 20px;
+}
+
+.score-section-left h1 {
+    font-size: 3rem;
+    color: #333;
+}
+
+.score-section-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 1.2rem;
+}
+
+.score-section-right h1 {
+    margin-bottom: 5px;
+}
+
+.score-section-right-span h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+#score, #remaining-chances {
+    font-size: 2rem;
+    color: #2e7d32;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 80%;
+    width: 80%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.left, .right {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.score-section{
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+}
+span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+span h1{
+    font-size: 14px;
+}
+
+/* Image section */
+.img-section {
+    background-image: url('path/to/your/hangman-image.png'); /* Replace with your own image */
+    background-size: contain;
+    background-position: center;
+    height: 250px;
+    border-radius: 8px;
+}
+
+/* Keyboard section */
+.keyBoard-section {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+.keyBoard-section button {
+    height: 45px;
+    width: 45px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: none; 
+    background-color: #5a0000;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: #f1f1f1;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.keyBoard-section button:hover {
+    background: #7c0000;
+}
+
+/* Right section styling */
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Input section */
+.input-section {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputField {
+    width: 40px;
+    outline: none;
+    background: #e2e2e2;
+    height: 40px;
+    text-align: center;
+    font-size: 1rem;
+    color: #7c0000;
+    font-weight: 800;
+    border: none;
+    border-bottom: 2px solid #002629;
+}
+
+/* Phrase section */
+.phrase-section {
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 5px;
+    color: #333;
+}
+.img-section{
+    background-image: url('https://i.pinimg.com/originals/77/03/35/77033585142bbdf5bf907c149d08abf7.png');
+    background-size: contain;
+    background-position: center;
+    height: 250px;
+    border-radius: 8px;
+    width: 100%;
+}
+.score-section h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1rem;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .score-section {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .keyBoard-section {
+        flex-direction: row;
+        justify-content: center;
+        width: 80%;
+    }
+    
+    .input-section {
+        flex-direction: column;
+    }
+
+    .keyBoard-section button {
+        height: 40px;
+        width: 40px;
+    }
+}

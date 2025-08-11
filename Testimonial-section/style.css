@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+.testimonial-cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.testimonial-card{
+    position: relative;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: space-evenly;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    height: 350px;
+    width: 300px;
+}
+
+.upper,.lower,.middle{
+    width: 100%;
+}
+.upper{
+    display: flex;
+    padding-inline: 20px;
+    align-items: start;
+    gap: 1rem;
+    justify-content: start;
+}
+.upper span:nth-child(1){
+    font-size: 4.2rem;
+    font-weight: 500;
+    color: #ffa600;
+}
+.upper span:nth-child(2){
+    font-size: 1rem;
+    text-align: start;
+    font-weight: 400;
+    color: #555555;
+}
+
+.lower{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+.lower h1{
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffa600;
+}
+.lower p{
+    font-size: 0.9rem;
+    color: #a1a1a1;
+    font-weight: 400;
+}
+.middle{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-inline: 40px;
+    position: relative;
+}
+.lines{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    background: #ffa600;
+    transform: translateY(-50%);
+    z-index: -4;
+}
+.lower{
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    padding-inline: 20px;
+}
+.ratings{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+.ratings i{
+    color: #ffa600;
+    font-size: 0.8rem;
+}
+
+.reviewer-image{
+    width:70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #ffa600;
+}

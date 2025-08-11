@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGE GALLERY</title>
+    <style>
+        /* Improved CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f0f0f0;
+        }
+
+        .LIGHT_BOX {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .IMAGE_CONTAINER {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .IMAGE_CONTAINER img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .IMAGE_CONTAINER img:hover {
+            transform: scale(1.02);
+        }
+
+        .INNER_BOX {
+            position: relative;
+            max-width: 90%;
+            max-height: 90vh;
+        }
+
+        .LIGHT_BOX_IMAGE {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .CLOSE_MODALE {
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            background: red;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .IMG_CONTROLLER {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .LEFT {
+            left: -50px;
+        }
+
+        .RIGHT {
+            right: -50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="LIGHT_BOX">
+        <div class="INNER_BOX">
+            <button class="IMG_CONTROLLER LEFT">❮</button>
+            <button class="IMG_CONTROLLER RIGHT">❯</button>
+            <button class="CLOSE_MODALE">✕</button>
+            <img class="LIGHT_BOX_IMAGE" src="" alt="">
+        </div>
+    </div>
+    <div class="IMAGE_CONTAINER">IMAGES WILL APPEAR HERE...</div>
+
+    <script>
+        // Improved JavaScript
+        const API_URL = 'https://picsum.photos/v2/list?page=2&limit=100';
+        let currentImageIndex = -1;
+        let images = [];
+
+        // DOM Elements
+        const lightbox = document.querySelector('.LIGHT_BOX');
+        const lightboxImage = document.querySelector('.LIGHT_BOX_IMAGE');
+        const imageContainer = document.querySelector('.IMAGE_CONTAINER');
+        const closeButton = document.querySelector('.CLOSE_MODALE');
+        const navButtons = document.querySelectorAll('.IMG_CONTROLLER');
+
+        // Fetch and display images
+        async function fetchImages() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+                images = data;
+                displayImages(data);
+            } catch (error) {
+                console.error('Error fetching images:', error);
+            }
+        }
+
+        function displayImages(images) {
+            imageContainer.innerHTML = images.map((img, index) => `
+                <img src="${img.download_url}" 
+                     alt="${img.author}" 
+                     data-index="${index}">
+            `).join('');
+
+            // Add click handlers to images
+            document.querySelectorAll('.IMAGE_CONTAINER img').forEach(img => {
+                img.addEventListener('click', (e) => {
+                    currentImageIndex = parseInt(e.target.dataset.index);
+                    updateLightbox();
+                    lightbox.style.display = 'flex';
+                });
+            });
+        }
+
+        // Lightbox controls
+        function updateLightbox() {
+            lightboxImage.src = images[currentImageIndex].download_url;
+        }
+
+        function navigate(direction) {
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            updateLightbox();
+        }
+
+        // Event listeners
+        closeButton.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                navigate(button.classList.contains('LEFT') ? -1 : 1);
+            });
+        });
+
+        // Close lightbox on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') navigate(-1);
+                if (e.key === 'ArrowRight') navigate(1);
+                if (e.key === 'Escape') lightbox.style.display = 'none';
+            }
+        });
+
+        // Initialize
+        fetchImages();
+    </script>
+</body>
+</html>
